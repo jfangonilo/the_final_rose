@@ -30,5 +30,12 @@ RSpec.describe "As a visitor," do
       expect(current_path).to eq("/bachelorettes/#{@bachelorette_1.id}/contestants")
     end
 
+    it 'shows the average age of contestants' do
+      visit "/bachelorettes/#{@bachelorette_1.id}"
+      within "#bachelorette-info" do
+        expect(page).to have_content @bachelorette_1.avg_contestant_age
+      end
+    end
+
   end
 end

@@ -11,4 +11,19 @@ RSpec.describe Bachelorette, type: :model do
   describe 'relationships' do
     it { should have_many :contestants }
   end
+
+  describe 'instance methods' do
+    before :each do
+      @bachelorette_1 = Bachelorette.create!(name: "Amy", season_number: 1, season_description: "Crazy season!")
+
+      @contestant_1 = Contestant.create!(name: "Andy", age: 21, hometown: "Ann Arbor", bachelorette: @bachelorette_1)
+      @contestant_2 = Contestant.create!(name: "Ben", age: 23, hometown: "Baltimore", bachelorette: @bachelorette_1)
+      @contestant_3 = Contestant.create!(name: "Chris", age: 26, hometown: "Cleveland", bachelorette: @bachelorette_1)
+    end
+
+    it 'avg_contestant_age' do
+      expect(@bachelorette_1.avg_contestant_age).to be_between(23.3, 23.4)
+    end
+
+  end
 end
