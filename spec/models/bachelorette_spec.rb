@@ -19,10 +19,15 @@ RSpec.describe Bachelorette, type: :model do
       @contestant_1 = Contestant.create!(name: "Andy", age: 21, hometown: "Ann Arbor", bachelorette: @bachelorette_1)
       @contestant_2 = Contestant.create!(name: "Ben", age: 23, hometown: "Baltimore", bachelorette: @bachelorette_1)
       @contestant_3 = Contestant.create!(name: "Chris", age: 26, hometown: "Cleveland", bachelorette: @bachelorette_1)
+      @contestant_4 = Contestant.create!(name: "Connor", age: 24, hometown: "Cleveland", bachelorette: @bachelorette_1)
     end
 
     it 'avg_contestant_age' do
-      expect(@bachelorette_1.avg_contestant_age).to be_between(23.3, 23.4)
+      expect(@bachelorette_1.avg_contestant_age).to be_between(23, 24)
+    end
+
+    it 'contestant_hometowns' do
+      expect(@bachelorette_1.contestant_hometowns).to match_array ["Ann Arbor", "Baltimore", "Cleveland"]
     end
 
   end
