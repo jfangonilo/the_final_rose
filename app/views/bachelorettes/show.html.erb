@@ -1,0 +1,6 @@
+<section id="bachelorette-info">
+  <%= @bachelorette.name %>
+  <%= @bachelorette.season_number %>
+  <%= @bachelorette.season_description %>
+  <%= link_to "Contestants", "/bachelorettes/#{@bachelorette.id}/contestants" %>
+</section>
