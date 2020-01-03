@@ -5,4 +5,8 @@ class ContestantsController < ApplicationController
     @contestants = bachelorette.contestants
   end
 
+  def show
+    @contestant = Contestant.find(params[:id])
+  end
+
 end
