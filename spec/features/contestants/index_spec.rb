@@ -31,16 +31,19 @@ RSpec.describe "As a visitor" do
       within "#contestant-#{@contestant_1.id}" do
         expect(page).to have_link @contestant_1.name
         expect(page).to have_content @contestant_1.age
+        expect(page).to have_content @contestant_1.hometown
       end
 
       within "#contestant-#{@contestant_2.id}" do
         expect(page).to have_link @contestant_2.name
         expect(page).to have_content @contestant_2.age
+        expect(page).to have_content @contestant_2.hometown
       end
 
       within "#contestant-#{@contestant_3.id}" do
         expect(page).to have_link @contestant_3.name
         expect(page).to have_content @contestant_3.age
+        expect(page).to have_content @contestant_3.hometown
       end
 
       click_link @contestant_1.name
